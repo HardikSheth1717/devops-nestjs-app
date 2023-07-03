@@ -1,0 +1,12 @@
+/dist
+/node_modules
+
+# development reated folders
+/.vscode
+/aws
+/documentation
+/jenkins
+/nginx
+
+# all the markdown files.
+*.md

@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@utils/*": ["src/utils/*"],
+      "@modules/*": ["src/modules/*"],
+      "@base/*": ["src/base/*"],
+      "@core/constants/*": ["src/core/constants/*"],
+      "@core/enums/*": ["src/core/constants/enums/*"],
+      "@core/decorators/*": ["src/core/decorators/*"],
+      "@core/exceptions/*": ["src/core/exceptions/*"],
+      "@core/filters/*": ["src/core/filters/*"],
+      "@core/guards/*": ["src/core/guards/*"],
+      "@core/interceptors/*": ["src/core/interceptors/*"],
+      "@core/middlewares/*": ["src/core/middlewares/*"],
+      "@core/pipes/*": ["src/core/pipes/*"],
+      "@config/envs/*": ["src/config/envs/*"],
+      "@config/swagger/*": ["src/config/swagger/*"],
+      "@config/typeorm/*": ["src/config/typeorm/*"],
+    },
+    "plugins": [
+      { "transform": "typescript-transform-paths" }
+    ],
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false
+  }
+}

@@ -1,0 +1,8 @@
+docker cp .\nginx\ssl\certs\localhost.crt nginx-server:/etc/ssl/certs/localhost.crt
+docker cp .\nginx\ssl\keys\localhost.key nginx-server:/etc/ssl/private/localhost.key
+
+docker cp .\nginx\config\nginx.conf nginx-server:/etc/nginx/nginx.conf
+docker cp .\nginx\config\default.conf nginx-server:/etc/nginx/conf.d/default.conf     
+
+docker cp nginx-server:/etc/nginx/nginx.conf .\nginx\config\nginx.conf
+docker cp nginx-server:/etc/nginx/conf.d/default.conf .\nginx\config\default.conf

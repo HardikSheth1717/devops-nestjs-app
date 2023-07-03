@@ -1,0 +1,41 @@
+version: '3.9'
+services:
+  webapp:
+    container_name: react-app-dev
+    # build: .
+    image: react-app:1.1
+    ports:
+      - 3000:3000
+    depends_on:
+      - webapi
+    restart: always
+  webapi:
+    container_name: nest-api-dev
+    # build: .
+    image: nest-api:1.1
+    ports:
+      - 4000:4000
+    depends_on:
+      - redis-db
+      - mysql-db
+    restart: always
+  mysql-db:
+    container_name: mysql-db-dev
+    image: mysql:8.0
+    restart: always
+    ports:
+      - ${MYSQL_PORT_DOCKER}:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD_DOCKER}
+    volumes:
+      - mysql-data:/var/lib/mysql
+  redis-db:
+    container_name: redis-db-dev
+    image: redis:latest
+    restart: always
+    ports:
+      - ${REDIS_PORT_DOCKER}:6379
+    command: 'redis-server --appendonly yes --requirepass ${REDIS_PASSWORD_DOCKER}'
+volumes:
+  mysql-data:
+    driver: local
